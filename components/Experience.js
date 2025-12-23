@@ -1,26 +1,21 @@
-const items = [
-  { role: 'Senior Developer', company: 'Acme Co', period: '2022 — Present', blurb: 'Built scalable features and improved performance by 30%.' },
-  { role: 'Frontend Engineer', company: 'Pixel Labs', period: '2019 — 2022', blurb: 'Led UI redesign, shipping component library.' },
-  { role: 'Intern', company: 'Startup', period: '2018 — 2019', blurb: 'Contributed to early-stage product features.' }
-]
+import React from 'react';
 
-export default function Experience(){
-  return (
-    <section id="experience" className="section experience">
-      <div className="container">
-        <h2>Experience</h2>
-        <div className="timeline">
-          {items.map((it,i)=> (
-            <div key={i} className={`timeline-item ${i%2===0? 'sky':'night'} reveal`}>
-              <div className="timeline-content">
-                <h3>{it.role} <span className="muted">@ {it.company}</span></h3>
-                <div className="period">{it.period}</div>
-                <p>{it.blurb}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+const Experience = () => (
+  <div className="space-y-8">
+    <h2 className="text-4xl font-bold italic">03 // Experience</h2>
+    <div className="space-y-4">
+      <div className="p-6 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl">
+        <h3 className="text-xl font-bold">Frontend Engineer Intern <span className="text-blue-400">@ Jibrin Store</span></h3>
+        <p className="text-sm text-gray-600 dark:text-gray-500 font-mono">May 2025 — July 2025 • Remote</p>
+        <ul className="list-disc pl-5 mt-3 space-y-2 text-gray-700 dark:text-gray-400">
+          <li>Delivered tailored frontend solutions for 5+ clients, boosting conversions by 25%.</li>
+          <li>Designed responsive UIs in React + TailwindCSS, improving satisfaction scores by 30%.</li>
+          <li>Enhanced accessibility and performance with optimized API integrations and mobile‑first layouts.</li>
+          <li>Key stack: React.js, JavaScript, TailwindCSS, API handling</li>
+        </ul>
       </div>
-    </section>
-  )
-}
+    </div>
+  </div>
+);
+
+export default Experience;
