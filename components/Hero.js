@@ -28,9 +28,11 @@ const Hero = () => (
       <button className="px-8 py-4 bg-white text-black font-bold rounded-sm hover:bg-blue-500 hover:text-white transition-all">
         VIEW ARCHIVE
       </button>
+      <a href = "https://drive.google.com/file/d/1mQ8KugRWMIhimH-UxEOsezT5rEew5tiK/view?usp=sharing" target="_blank" rel="noopener noreferrer">
       <button className="px-8 py-4 font-bold rounded-sm transition-all bg-black text-white hover:bg-neutral-800 dark:bg-transparent dark:text-white dark:border dark:border-white/10 dark:hover:bg-white/5">
         GET RESUME
       </button>
+      </a>
     </div>
   </div>
 );
