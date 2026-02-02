@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { X, FileText, Loader2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { X, FileText, Loader2, Github, Linkedin, ArrowRight } from 'lucide-react';
 
 const ResumeModal = ({ isOpen, onClose }) => {
   const [name, setName] = useState('');
@@ -38,7 +39,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
 
       // Open resume in new tab
       window.open(
-        'https://drive.google.com/file/d/1mQ8KugRWMIhimH-UxEOsezT5rEew5tiK/view?usp=sharing',
+        'https://www.overleaf.com/read/xkpqwwhsfzwm#1f9bae',
         '_blank'
       );
 
@@ -58,13 +59,21 @@ const ResumeModal = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div 
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
       
       {/* Modal */}
-      <div className="relative bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 rounded-2xl p-8 w-full max-w-md shadow-2xl">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: 20 }}
+        className="relative bg-white dark:bg-[#111] border border-black/10 dark:border-white/10 rounded-2xl p-8 w-full max-w-md shadow-2xl"
+      >
         {/* Close button */}
         <button 
           onClick={onClose}
@@ -128,7 +137,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
         <p className="text-center text-xs text-gray-500 mt-4">
           Your info helps me follow up on opportunities
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -137,37 +146,99 @@ const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="space-y-6">
-      <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-mono">
+    <div className="flex flex-col justify-center min-h-[80vh] space-y-8">
+      {/* Status Badge */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+        className="inline-flex items-center gap-2 px-4 py-2 w-fit rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm"
+      >
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
         </span>
-        <span>Open to internships and full-time SWE roles</span>
-      </div>
-      <h1 className="text-6xl md:text-8xl font-black tracking-tight leading-[0.9]">
-        CODE <br /> 
-        <span className="inline dark:hidden text-transparent stroke-text" style={{ WebkitTextStroke: '1px rgba(0,0,0,0.3)' }}>CREATE</span>
-        <span className="hidden dark:inline text-transparent stroke-text" style={{ WebkitTextStroke: '1px rgba(255,255,255,0.4)' }}>CREATE</span> <br /> 
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400">CONNECT.</span>
-      </h1>
-      <div className="space-y-2">
-        <p className="text-2xl font-bold">Vijaya Mishra</p>
-        <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl max-w-2xl font-light leading-relaxed">
-          Full‑stack developer & ML enthusiast building scalable web apps, intelligent systems, and real‑time experiences. Passionate about clean architecture, performant UIs, and data‑driven solutions.
-        </p>
-        <div className="flex flex-wrap gap-3 text-sm text-gray-700 dark:text-gray-300">
-          <a className="underline underline-offset-4" href="mailto:vijaya21m04@gmail.com">vijaya21m04@gmail.com</a>
-        </div>
-      </div>
-      <div className="flex pt-4 space-x-4">
+        <span>Available for opportunities</span>
+      </motion.div>
+
+      {/* Main Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95]">
+          <span className="block">Hi, I'm</span>
+          <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500">
+            Vijaya Mishra
+          </span>
+        </h1>
+      </motion.div>
+
+      {/* Role Tags */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+        className="flex flex-wrap gap-3"
+      >
+        <span className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-500 text-sm font-medium">
+          Full-Stack Developer
+        </span>
+        <span className="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-500 text-sm font-medium">
+          ML Enthusiast
+        </span>
+        <span className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-500 text-sm font-medium">
+          Open Source Contributor
+        </span>
+      </motion.div>
+
+      {/* Description */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="text-gray-600 dark:text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed"
+      >
+        I build scalable web applications and intelligent systems. Passionate about clean code, 
+        great user experiences, and solving real-world problems with technology.
+      </motion.p>
+
+      {/* CTA Buttons */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="flex flex-wrap items-center gap-4 pt-4"
+      >
         <button 
           onClick={() => setIsModalOpen(true)}
-          className="px-8 py-4 bg-white text-black font-bold rounded-sm hover:bg-blue-500 hover:text-white transition-all"
+          className="group px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all flex items-center gap-2"
         >
-          GET RESUME
+          Get Resume
+          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </button>
-      </div>
+        
+        {/* Social Links */}
+        <div className="flex items-center gap-3">
+          <a
+            href="https://github.com/Vijayaa21"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all"
+          >
+            <Github size={20} />
+          </a>
+          <a
+            href="https://linkedin.com/in/vijayamishra"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all"
+          >
+            <Linkedin size={20} />
+          </a>
+        </div>
+      </motion.div>
 
       {/* Resume Modal */}
       <ResumeModal 
