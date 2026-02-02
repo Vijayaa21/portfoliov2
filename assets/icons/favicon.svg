@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Love+Light&amp;display=swap');
+    </style>
+
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+
+    <!-- VM gradient -->
+    <linearGradient id="vmGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+
+    <!-- Glow -->
+    <filter id="softGlow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2"
+        flood-color="#3B82F6" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded background -->
+  <rect width="64" height="64" rx="12" fill="url(#bgGrad)"/>
+
+  <!-- Inner panel -->
+  <rect x="6" y="6" width="52" height="52" rx="10"
+        fill="none" stroke="#1E293B" stroke-width="2"/>
+
+  <!-- Dev symbol -->
+  <text x="28" y="28"
+        text-anchor="middle"
+        font-size="26"
+        font-family="monospace"
+        fill="#1E40AF"
+        opacity="0.25">
+    &lt;/&gt;
+  </text>
+
+  <!-- VM initials -->
+  <text x="36" y="46"
+        text-anchor="middle"
+        font-size="64"
+        font-family="'Love Light', cursive"
+        fill="url(#vmGrad)"
+        filter="url(#softGlow)">
+    V
+  </text>
+
+</svg>

@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import { useEffect } from 'react'
+import Head from 'next/head'
 
 export default function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -27,5 +28,15 @@ export default function MyApp({ Component, pageProps }) {
     return () => observer.disconnect()
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Head>
+        <title>Vijaya Mishra | Full-Stack Developer & ML Enthusiast</title>
+        <meta name="description" content="Portfolio of Vijaya Mishra - Full-stack developer & ML enthusiast building scalable web apps and intelligent systems." />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  )
 }
