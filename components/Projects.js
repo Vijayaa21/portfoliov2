@@ -1,72 +1,6 @@
 import React from 'react';
 import { Github, ExternalLink } from 'lucide-react';
 
-// Project data with level tags and links
-const projects = [
-  {
-    title: 'Weather App',
-    description: 'A simple weather application that fetches real-time weather data using OpenWeatherMap API. Features include city search, current conditions, and 5-day forecast display.',
-    tech: ['HTML', 'CSS', 'JavaScript', 'REST API'],
-    level: 'beginner',
-    image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=600&h=400&fit=crop',
-    github: 'https://github.com/Vijayaa21/weather-app',
-    demo: 'https://main--genuine-sherbet-a3ff96.netlify.app/',
-  },
-  {
-    title: 'Fashion Fista',
-    description: 'Interactive fashion e‑commerce app with virtual try‑on, theme customization, thrift marketplace and a real‑time Shopping Buddy boosting retention by 35%.',
-    tech: ['React', 'Tailwind'],
-    level: 'intermediate',
-    image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=400&fit=crop',
-    github: 'https://github.com/Vijayaa21/FashionFista',
-   
-  },
-  {
-    title: 'Pingify',
-    description: 'Real-time chat app with JWT auth, typing indicators, presence, and read receipts. Built with React, Node, Express, MongoDB, Socket.io.',
-    tech: ['React', 'Node', 'Express', 'MongoDB', 'Socket.io', 'Tailwind'],
-    level: 'advanced',
-    image: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=600&h=400&fit=crop',
-    github: 'https://github.com/Vijayaa21/Pingify',
-    demo: 'https://github.com/Vijayaa21/Pingify',
-  },
-  {
-    title: 'Blabber',
-    description: 'Full‑stack social platform with JWT auth, posts, comments, likes, recommendations; React Query state sync and Cloudinary media.',
-    tech: ['React', 'Node', 'Express', 'MongoDB', 'React Query', 'Tailwind', 'MUI', 'REST'],
-    level: 'advanced',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop',
-    github: 'https://github.com/Vijayaa21/Blabber',
-    demo: 'https://blabber-front.onrender.com/',
-  },
-  {
-    title: 'PDF Extraction',
-    description: 'A document processing tool that extracts text, tables, and metadata from PDF files. Features OCR support, batch processing, and export to multiple formats.',
-    tech: ['Python', 'PyPDF2', 'Tesseract', 'Flask'],
-    level: 'beginner',
-    image: 'https://images.unsplash.com/photo-1568667256549-094345857637?w=600&h=400&fit=crop',
-    github: 'https://github.com/Vijayaa21/pdf-dashboard',
-    demo: 'https://pdf-extra-act.vercel.app/',
-  },
-  
-  {
-    title: 'Vibe Com',
-    description: 'Full-featured e-commerce platform with product catalog, shopping cart, secure payments, order tracking, admin dashboard, and inventory management.',
-    tech: ['React', 'Node', 'Express', 'MongoDB', 'Stripe', 'Redux'],
-    level: 'advanced',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-    github: 'https://github.com/Vijayaa21/vibe-com-cart',
-  },
-  {
-    title: 'Churn Prediction',
-    description: 'Machine learning model to predict customer churn using historical data. Features data preprocessing, model training, evaluation metrics, and prediction API.',
-    tech: ['Python', 'Scikit-learn', 'Pandas', 'Flask', 'Docker'],
-    level: 'intermediate',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-    github: 'https://github.com/Vijayaa21/Customer-Churn-Prediction',
-  },
-];
-
 // Level badge component
 const LevelBadge = ({ level }) => {
   const styles = {
@@ -119,18 +53,35 @@ const ProjectCard = ({ project }) => (
   </div>
 );
 
-const Works = () => (
-  <div className="space-y-8">
-    <div className="flex justify-between items-end">
-      <h2 className="text-4xl font-bold italic">04 // Selected Works</h2>
-      <p className="text-blue-500 font-mono text-sm">Sorted by Impact</p>
+const Works = ({ githubProjects = [] }) => {
+  return (
+    <div className="space-y-8">
+      <div className="flex justify-between items-end flex-wrap gap-4">
+        <h2 className="text-4xl font-bold italic">04 // Selected Works</h2>
+        <div className="flex items-center gap-4">
+          {githubProjects.length > 0 && (
+            <span className="text-green-500 font-mono text-xs flex items-center gap-1">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              Auto-synced from GitHub
+            </span>
+          )}
+          <p className="text-blue-500 font-mono text-sm">{githubProjects.length} Projects</p>
+        </div>
+      </div>
+      {githubProjects.length === 0 ? (
+        <div className="text-center py-16 text-gray-500 dark:text-gray-400">
+          <p className="text-lg mb-2">No projects found</p>
+          <p className="text-sm">Add the <code className="bg-black/10 dark:bg-white/10 px-2 py-1 rounded">portfolio-project</code> topic to your GitHub repos to display them here.</p>
+        </div>
+      ) : (
+        <div className="grid md:grid-cols-3 gap-6">
+          {githubProjects.map(project => (
+            <ProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+      )}
     </div>
-    <div className="grid md:grid-cols-3 gap-6">
-      {projects.map(project => (
-        <ProjectCard key={project.title} project={project} />
-      ))}
-    </div>
-  </div>
-);
+  );
+};
 
 export default Works;

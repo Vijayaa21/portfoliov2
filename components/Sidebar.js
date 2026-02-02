@@ -21,9 +21,8 @@ export const SECTIONS = [
   { id: 'about', label: 'Identity', icon: <User size={20} /> },
   { id: 'skills', label: 'Arsenal', icon: <Cpu size={20} /> },
   { id: 'experience', label: 'Experience', icon: <Briefcase size={20} /> },
-  { id: 'projects', label: 'Works', icon: <Layout size={20} /> },
+  { id: 'projects', label: 'Projects', icon: <Layout size={20} /> },
   { id: 'achievements', label: 'Achievements', icon: <Trophy size={20} /> },
-  { id: 'oss', label: 'Open Source', icon: <Github size={20} /> },
   { id: 'contact', label: 'Connect', icon: <Mail size={20} /> },
 ];
 

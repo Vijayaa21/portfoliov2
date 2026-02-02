@@ -13,6 +13,10 @@ const Achievements = () => (
         <h3 className="font-bold inline-flex items-center gap-2"><Trophy size={18}/> Myntra WeForShe Hackathon Semifinalist</h3>
         <p className="text-gray-700 dark:text-gray-400 mt-2">Ranked top 70 of 30,000+ teams; built eco‑friendly fashion solutions with interactive prototypes.</p>
       </div>
+      <div className="p-6 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-xl">
+        <h3 className="font-bold inline-flex items-center gap-2"><Trophy size={18}/> SheCodes Scholar</h3>
+        <p className="text-gray-700 dark:text-gray-400 mt-2">Selected among top 400 students in India to lead developer initiatives and community events.</p>
+      </div>
     </div>
   </div>
 );

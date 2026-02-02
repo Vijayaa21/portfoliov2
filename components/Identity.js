@@ -10,7 +10,7 @@ const Identity = () => (
       </p>
       <div className="grid grid-cols-2 gap-4">
         {[
-          { label: 'Email', val: 'vijayam0421@gmail.com' },
+          { label: 'Email', val: 'vijaya21m04@gmail.com' },
           { label: 'Location', val: 'Prayagraj, India' },
           { label: 'Degree', val: 'B.Tech, ECE (8.4 GPA)' },
         ].map(item => (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { ChevronUp, ChevronDown } from 'lucide-react';
+import { getPortfolioProjects } from '../lib/github';
 
 // Components
 import Sidebar, { SECTIONS } from '../components/Sidebar';
@@ -9,14 +10,13 @@ import Hero from '../components/Hero';
 import Identity from '../components/Identity';
 import Arsenal from '../components/Arsenal';
 import Experience from '../components/Experience';
-import Works from '../components/Projects';
+import Projects from '../components/Projects';
 import Achievements from '../components/Achievements';
-import OpenSource from '../components/OpenSource';
 import Connect from '../components/Connect';
 
 // --- Main App ---
 
-export default function Home() {
+export default function Home({ githubProjects = [] }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDark, setIsDark] = useState(true);
 
@@ -106,10 +106,9 @@ export default function Home() {
       case 1: return <Identity />;
       case 2: return <Arsenal />;
       case 3: return <Experience />;
-      case 4: return <Works />;
+      case 4: return <Projects githubProjects={githubProjects} />;
       case 5: return <Achievements />;
-      case 6: return <OpenSource />;
-      case 7: return <Connect />;
+      case 6: return <Connect />;
       default: return <Hero />;
     }
   };
@@ -167,4 +166,17 @@ export default function Home() {
          style={{ backgroundImage: isDark ? 'radial-gradient(#ffffff 1px, transparent 1px)' : 'radial-gradient(#000000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
     </div>
   );
+}
+
+// Fetch GitHub projects at build time with ISR (Incremental Static Regeneration)
+export async function getStaticProps() {
+  const githubProjects = await getPortfolioProjects();
+
+  return {
+    props: {
+      githubProjects,
+    },
+    // Re-generate the page in the background at most once every hour
+    revalidate: 3600,
+  };
 }
