@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { ChevronUp, ChevronDown } from 'lucide-react';
 import { getPortfolioProjects } from '../lib/github';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
 // Components
 import Sidebar, { SECTIONS } from '../components/Sidebar';
@@ -120,7 +120,7 @@ export default function Home({ githubProjects = [] }) {
       <Sidebar activeIndex={activeIndex} setActiveIndex={setActiveIndex} isDark={isDark} onToggleTheme={() => setIsDark((d) => !d)} />
 
       {/* Main Slideshow Content */}
-      <main className="flex-1 ml-20 lg:ml-64 h-screen relative">
+      <main className="flex-1 md:ml-20 lg:ml-64 h-screen relative pb-20 md:pb-0">
         
         {/* Animated Slide Container */}
         <div className="h-full w-full relative">
@@ -131,8 +131,8 @@ export default function Home({ githubProjects = [] }) {
           </AnimatePresence>
         </div>
 
-        {/* Page Indicators (Vertical) */}
-        <div className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col space-y-4 hidden md:flex">
+        {/* Page Indicators (Vertical) - Hidden on mobile */}
+        <div className="fixed right-8 top-1/2 -translate-y-1/2 flex-col space-y-4 hidden lg:flex">
           {SECTIONS.map((_, i) => (
             <button
               key={i}

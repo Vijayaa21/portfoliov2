@@ -146,13 +146,13 @@ const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="flex flex-col justify-center min-h-[80vh] space-y-8">
+    <div className="flex flex-col justify-center min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh] space-y-5 sm:space-y-6 md:space-y-8 px-1">
       {/* Status Badge */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
-        className="inline-flex items-center gap-2 px-4 py-2 w-fit rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-sm"
+        className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 w-fit rounded-full bg-gradient-to-r from-blue-500/10 to-emerald-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs sm:text-sm"
       >
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -167,7 +167,7 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[0.95]">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-[0.95]">
           <span className="block">Hi, I'm</span>
           <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-emerald-500">
             Vijaya Mishra
@@ -180,15 +180,15 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        className="flex flex-wrap gap-3"
+        className="flex flex-wrap gap-2 sm:gap-3"
       >
-        <span className="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-500 text-sm font-medium">
+        <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-500 text-xs sm:text-sm font-medium">
           Full-Stack Developer
         </span>
-        <span className="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-500 text-sm font-medium">
+        <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-500 text-xs sm:text-sm font-medium">
           ML Enthusiast
         </span>
-        <span className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-500 text-sm font-medium">
+        <span className="px-3 sm:px-4 py-1.5 sm:py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-emerald-500 text-xs sm:text-sm font-medium">
           Open Source Contributor
         </span>
       </motion.div>
@@ -198,7 +198,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="text-gray-600 dark:text-gray-400 text-lg md:text-xl max-w-2xl leading-relaxed"
+        className="text-gray-600 dark:text-gray-400 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed"
       >
         I build scalable web applications and intelligent systems. Passionate about clean code, 
         great user experiences, and solving real-world problems with technology.
@@ -209,33 +209,33 @@ const Hero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="flex flex-wrap items-center gap-4 pt-4"
+        className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 sm:pt-4"
       >
         <button 
           onClick={() => setIsModalOpen(true)}
-          className="group px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all flex items-center gap-2"
+          className="group px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-all flex items-center gap-2 text-sm sm:text-base"
         >
           Get Resume
           <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </button>
         
         {/* Social Links */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <a
             href="https://github.com/Vijayaa21"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all"
+            className="p-2.5 sm:p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all"
           >
-            <Github size={20} />
+            <Github size={18} className="sm:w-5 sm:h-5" />
           </a>
           <a
             href="https://linkedin.com/in/vijayamishra"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all"
+            className="p-2.5 sm:p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all"
           >
-            <Linkedin size={20} />
+            <Linkedin size={18} className="sm:w-5 sm:h-5" />
           </a>
         </div>
       </motion.div>

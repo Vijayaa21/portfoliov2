@@ -61,16 +61,16 @@ const Arsenal = () => {
   };
 
   return (
-    <div className="space-y-8">
-      <div className="flex justify-between items-end flex-wrap gap-4">
-        <h2 className="text-4xl font-bold italic">02 // Arsenal</h2>
-        <p className="text-gray-500 dark:text-gray-400 text-sm font-mono">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold italic">02 // Arsenal</h2>
+        <p className="text-gray-500 dark:text-gray-400 text-xs sm:text-sm font-mono">
           Tools I use to bring ideas to life
         </p>
       </div>
 
       {/* Skills Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {skills.map((skill, index) => (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -78,22 +78,22 @@ const Arsenal = () => {
             transition={{ delay: index * 0.1 }}
             whileHover={{ y: -5, scale: 1.02 }}
             key={skill.title} 
-            className="p-6 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/5 rounded-2xl space-y-4 hover:border-blue-500/30 transition-colors"
+            className="p-4 sm:p-6 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/5 rounded-xl sm:rounded-2xl space-y-3 sm:space-y-4 hover:border-blue-500/30 transition-colors"
           >
             {/* Icon & Title */}
-            <div className="flex items-center gap-3">
-              <div className={`p-2 rounded-lg border ${colorClasses[skill.color]}`}>
-                {skill.icon}
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className={`p-1.5 sm:p-2 rounded-lg border ${colorClasses[skill.color]}`}>
+                <span className="[&>svg]:w-5 [&>svg]:h-5 sm:[&>svg]:w-6 sm:[&>svg]:h-6">{skill.icon}</span>
               </div>
-              <h3 className="font-bold text-lg">{skill.title}</h3>
+              <h3 className="font-bold text-base sm:text-lg">{skill.title}</h3>
             </div>
 
             {/* Skills as Tags */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
               {skill.list.map(s => (
                 <span 
                   key={s} 
-                  className="px-2 py-1 bg-black/5 dark:bg-white/10 rounded-md text-xs font-mono text-gray-700 dark:text-gray-300 hover:bg-blue-500/20 hover:text-blue-500 transition-colors cursor-default"
+                  className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-black/5 dark:bg-white/10 rounded-md text-[10px] sm:text-xs font-mono text-gray-700 dark:text-gray-300 hover:bg-blue-500/20 hover:text-blue-500 transition-colors cursor-default"
                 >
                   {s}
                 </span>
@@ -104,9 +104,9 @@ const Arsenal = () => {
       </div>
 
       {/* Currently Learning */}
-      <div className="pt-4">
-        <div className="p-4 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-white/10 rounded-xl">
-          <p className="text-sm text-gray-600 dark:text-gray-400">
+      <div className="pt-2 sm:pt-4">
+        <div className="p-3 sm:p-4 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-white/10 rounded-xl">
+          <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
             <span className="text-blue-500 font-semibold">Currently exploring:</span>{' '}
             Kubernetes, GraphQL, LangChain & Vector Databases
           </p>

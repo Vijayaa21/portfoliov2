@@ -41,26 +41,26 @@ const Connect = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto w-full space-y-12">
+    <div className="max-w-4xl mx-auto w-full space-y-8 sm:space-y-10 lg:space-y-12">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center space-y-4"
+        className="text-center space-y-3 sm:space-y-4"
       >
-        <h2 className="text-5xl font-bold">Let's Connect</h2>
-        <p className="text-gray-600 dark:text-gray-400 max-w-lg mx-auto">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">Let's Connect</h2>
+        <p className="text-gray-600 dark:text-gray-400 max-w-lg mx-auto text-sm sm:text-base">
           I'm always excited to collaborate on interesting projects or discuss new opportunities. Drop me a message!
         </p>
       </motion.div>
 
-      <div className="grid lg:grid-cols-5 gap-8">
-        {/* Contact Info */}
+      <div className="grid lg:grid-cols-5 gap-6 lg:gap-8">
+        {/* Contact Info - Hidden on mobile and tablet */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.1 }}
-          className="lg:col-span-2 space-y-6"
+          className="hidden lg:block lg:col-span-2 space-y-6"
         >
           {/* Email Card */}
           <div className="p-6 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl space-y-4">
@@ -109,52 +109,52 @@ const Connect = () => {
           </div>
         </motion.div>
 
-        {/* Contact Form */}
+        {/* Contact Form - Full width on mobile/tablet */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
-          className="lg:col-span-3"
+          className="col-span-1 lg:col-span-3"
         >
-          <form onSubmit={handleSubmit} className="p-8 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl space-y-6">
-            <div className="flex items-center gap-3 mb-2">
-              <MessageSquare size={20} className="text-blue-500" />
-              <h3 className="text-lg font-bold">Send a Message</h3>
+          <form onSubmit={handleSubmit} className="p-5 sm:p-6 lg:p-8 bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl space-y-4 sm:space-y-6">
+            <div className="flex items-center gap-2 sm:gap-3 mb-2">
+              <MessageSquare size={18} className="sm:w-5 sm:h-5 text-blue-500" />
+              <h3 className="text-base sm:text-lg font-bold">Send a Message</h3>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="block text-sm text-gray-500 mb-2">Your Name</label>
+                <label className="block text-xs sm:text-sm text-gray-500 mb-1.5 sm:mb-2">Your Name</label>
                 <input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="John Doe"
-                  className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 transition-colors"
+                  className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 transition-colors text-sm sm:text-base"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm text-gray-500 mb-2">Your Email</label>
+                <label className="block text-xs sm:text-sm text-gray-500 mb-1.5 sm:mb-2">Your Email</label>
                 <input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="john@example.com"
-                  className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 transition-colors"
+                  className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 transition-colors text-sm sm:text-base"
                   required
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm text-gray-500 mb-2">Message</label>
+              <label className="block text-xs sm:text-sm text-gray-500 mb-1.5 sm:mb-2">Message</label>
               <textarea
                 rows="4"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="Hey Vijaya, I'd love to discuss..."
-                className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-4 py-3 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 transition-colors resize-none"
+                className="w-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl focus:outline-none focus:border-blue-500 text-gray-900 dark:text-white placeholder-gray-500 transition-colors resize-none text-sm sm:text-base"
                 required
               />
             </div>
@@ -162,7 +162,7 @@ const Connect = () => {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className={`w-full py-4 font-bold rounded-xl flex items-center justify-center gap-2 transition-all ${
+              className={`w-full py-3 sm:py-4 font-bold rounded-xl flex items-center justify-center gap-2 transition-all text-sm sm:text-base ${
                 status === 'success'
                   ? 'bg-green-500 text-white'
                   : status === 'error'
