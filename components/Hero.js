@@ -39,7 +39,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
 
       // Open resume in new tab
       window.open(
-        'https://www.overleaf.com/read/xkpqwwhsfzwm#1f9bae',
+        'https://drive.google.com/file/d/1hIYlnEUKX8xeb6y9RMdH-STr8g-UwSNa/view?usp=sharing',
         '_blank'
       );
 

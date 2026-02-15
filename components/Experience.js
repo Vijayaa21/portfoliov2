@@ -1,15 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Briefcase, Calendar, MapPin, ExternalLink, Award } from 'lucide-react';
+import { Github, Briefcase, Calendar, ExternalLink, Award } from 'lucide-react';
 
 const experiences = [
   {
     type: 'work',
     title: 'Frontend Engineer Intern',
-    company: 'Jibrin Store',
+    company: 'Stealth Startup',
     companyUrl: null,
     period: 'May 2025 — July 2025',
-    location: 'Remote',
     description: 'Built tailored frontend solutions that directly impacted business growth and user satisfaction.',
     highlights: [
       'Delivered frontend solutions for 5+ clients, boosting conversions by 25%',
@@ -24,7 +23,6 @@ const experiences = [
     company: 'GirlScript Summer of Code',
     companyUrl: 'https://gssoc.girlscript.tech',
     period: 'GSSoC 2024 & 2025',
-    location: 'Virtual',
     description: 'Contributed as a top developer and now mentoring the next generation as Project Admin.',
     highlights: [
       'Top 350 contributor in GSSoC 2024 across 4+ repositories',
@@ -40,7 +38,6 @@ const experiences = [
     company: 'Hacktoberfest',
     companyUrl: 'https://hacktoberfest.com',
     period: 'October 2025',
-    location: 'Virtual',
     description: 'Contributed quality PRs to earn the official Hacktoberfest completion badge.',
     highlights: [
       'Improved code readability and optimized APIs across multiple repos',
@@ -130,9 +127,6 @@ const ExperienceCard = ({ experience, index }) => (
         <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-3 sm:mb-4">
           <span className="inline-flex items-center gap-1 sm:gap-1.5">
             <Calendar size={12} className="sm:w-3.5 sm:h-3.5" /> {experience.period}
-          </span>
-          <span className="inline-flex items-center gap-1 sm:gap-1.5">
-            <MapPin size={12} className="sm:w-3.5 sm:h-3.5" /> {experience.location}
           </span>
         </div>
 
